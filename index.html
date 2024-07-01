@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chek Kodam</title>
+<style>
+  body {
+    background-image: url('Jarwo.jpg'); /* Ganti 'background.jpg' dengan path ke gambar latar belakang Anda */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    opacity: 0.5; /* Opacity 50% untuk latar belakang */
+  }
+  .phone {
+    position: relative;
+    width: 300px; /* Sesuaikan ukuran handphone sesuai kebutuhan */
+    height: 600px; /* Sesuaikan ukuran handphone sesuai kebutuhan */
+    margin: 50px auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  .screen {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 60px;
+    background: black;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+  }
+  .button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFA500; /* Warna orange */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  .button:hover {
+    background-color: #FF8C00; /* Warna orange yang sedikit lebih gelap */
+  }
+  .input-text {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 2px solid red; /* Warna border merah */
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="screen" id="screen">
+    <h1>Chek Kodam</h1>
+    <form onsubmit="return false;">
+      <label for="nama" style="color: red;">Nama Anda:</label><br>
+      <input type="text" id="nama" name="nama" class="input-text" autocomplete="off"><br><br>
+      <button class="button" onclick="showRandomWord()">Kirim</button>
+    </form>
+  </div>
+</div>
+
+<script>
+function showRandomWord() {
+  var words = [
+    "hantu terbang",
+    "Tayo beranak 3",
+    "BoBoiBoy",
+    "Anjay hantu Galau",
+    "Monyet kesasar",
+    "burung gagak tua",
+    "lah ayam terbang",
+    "pesawat ceker babat",
+    "musang",
+    "hantu si gamon",
+    "anjing si hts an",
+    "buaya darat hi cantik",
+    "monyet sipengincar cecan",
+    "ayam dan anjing hts an",
+    "bodat",
+    "babi kembar",
+    "putri duyung 3 sirip",
+    "bakso beranak 100",
+    "istri orang",
+    "suami orang",
+    "si janda galau",
+    "si duda tanvan",
+    "si duda sate bot",
+    "si janda sate boy"
+  ];
+
+  var randomIndex = Math.floor(Math.random() * words.length);
+  var randomWord = words[randomIndex];
+
+  var screen = document.getElementById("screen");
+  var namaInput = document.getElementById("nama").value.trim();
+
+  if (namaInput !== "") {
+    screen.innerHTML = "<h1>Chek Kodam</h1><p style='color: white;'>" + namaInput + ", " + randomWord + "</p>";
+  } else {
+    screen.innerHTML = "<h1>Chek Kodam</h1><p style='color: white;'>Silakan masukkan nama Anda.</p>";
+  }
+}
+</script>
+
+</body>
+</html>
